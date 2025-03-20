@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Datosdevisitantes {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Introduzca su nombre: ");
+        String nombre = sc.nextLine();
+
+        System.out.print("Introduzca su edad: ");
+        int edad = sc.nextInt();
+
+        System.out.print("Introduzca su número de teléfono: ");
+        long telefono = sc.nextLong();
+
+        System.out.print("Introduzca su género (M/F): ");
+        char genero = sc.next().charAt(0);
+
+        System.out.print("Introduzca su número de habitación: ");
+        byte habitacion = sc.nextByte();
+
+        System.out.print("Introduzca su altura (Ej: 1.70m): ");
+        float altura = sc.nextFloat();
+
+        System.out.print("Introduzca su peso (Ej: 90kg): ");
+        double peso = sc.nextDouble();
+
+        System.out.print("¿Es residente? (true/false): ");
+        boolean esResidente = sc.nextBoolean();
+
+        int totalVisitas = 0;
+        double sumaTiempoEstancia = 0;
+
+        for (int i = 1; i <= 7; i++) {
+            System.out.print("Ingrese la cantidad de visitas del día " + i + ": ");
+            int visitasDia = sc.nextInt();
+            totalVisitas += visitasDia;
+
+            for (int j = 1; j <= visitasDia; j++) {
+                System.out.print("Tiempo de estancia en la visita " + j + " del día " + i + " (horas): ");
+                double tiempoEstancia = sc.nextDouble();
+                sumaTiempoEstancia += tiempoEstancia;
+            }
+        }
+
+        double promedioTiempoEstancia = totalVisitas > 0 ? sumaTiempoEstancia / totalVisitas : 0;
+        String mayorMenorEdad = (edad >= 18) ? "Mayor de edad" : "Menor de edad";
+
+        System.out.println("\nDatos del Visitante:\n");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad + " años (" + mayorMenorEdad + ")");
+        System.out.println("Teléfono: " + telefono);
+        System.out.println("Género: " + genero);
+        System.out.println("Habitación: " + habitacion);
+        System.out.println("Altura: " + altura + " m");
+        System.out.println("Peso: " + peso + " kg");
+        System.out.println("¿Es residente?: " + esResidente);
+        System.out.println("Cantidad total de visitas en la semana: " + totalVisitas);
+        System.out.println("Tiempo promedio de estancia: " + promedioTiempoEstancia + " horas");
+
+        sc.close();
+    }
+}
